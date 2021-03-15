@@ -45,6 +45,7 @@ client.connect(err => {
   const serviceCollection = client.db("hospital-management-system").collection("services");
   const appointmentCollection = client.db("hospital-management-system").collection("appointments");
 
+
   
   app.post('/addAdmin', (req, res) => {
     const adminInfo = req.body;
@@ -154,6 +155,7 @@ client.connect(err => {
     app.get('/appointments', (req, res)=> {
       appointmentCollection.find({})
         .toArray((err, doccuments) =>{
+          console.log(doccuments, err)
           res.send(doccuments)
       })
     })
