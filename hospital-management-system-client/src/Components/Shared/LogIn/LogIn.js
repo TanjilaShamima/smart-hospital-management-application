@@ -19,19 +19,19 @@ const LogIn = ({user, addLoggedinUser}) => {
     // console.log(doctors)
 
     useEffect(() => {
-        fetch('http://localhost:5000/admins')
+        fetch('https://floating-ocean-27822.herokuapp.com/admins')
        .then(res => res.json())
        .then(data => setAdmin(data))
      },[])
 
      useEffect(() => {
-        fetch('http://localhost:5000/patients')
+        fetch('https://floating-ocean-27822.herokuapp.com/patients')
        .then(res => res.json())
        .then(data => setPatient(data))
      },[])
 
      useEffect(() => {
-        fetch('http://localhost:5000/doctors')
+        fetch('https://floating-ocean-27822.herokuapp.com/doctors')
        .then(res => res.json())
        .then(data => setDoctors(data))
      },[])
@@ -78,16 +78,6 @@ const LogIn = ({user, addLoggedinUser}) => {
         }
 
 
-        // fetch('http://localhost:5000/login',{
-        //     method: 'POST',
-        //     headers: {'Content-Type': 'application/json'},
-        //     body: JSON.stringify(data)
-        // })
-        // .then(res => res.json())
-        // .then(returnedData => {
-        //     history.replace(from);
-        // })
-        // .catch(err => console.log(err));
     }
 
     return (

@@ -26,7 +26,7 @@ const DoctorRegistration = ({user, addLoggedinUser}) => {
         doctorInfo.append('userPassword', data.userPassword);
         doctorInfo.append('role', 'doctor');
 
-        fetch('http://localhost:5000/addDoctor',{
+        fetch('https://floating-ocean-27822.herokuapp.com/addDoctor',{
             method: 'POST',
             body: doctorInfo
         })

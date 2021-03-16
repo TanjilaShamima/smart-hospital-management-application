@@ -11,7 +11,7 @@ const YourAppointments = ({user}) => {
     const [filterAppoitments, setFilterAppoitments] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/appointments')
+        fetch('https://floating-ocean-27822.herokuapp.com/appointments')
        .then(res => res.json())
        .then(data => setAppointment(data))
      },[])
@@ -19,7 +19,7 @@ const YourAppointments = ({user}) => {
      useEffect(() => {
         const filterApp = appointments.filter(appointment => appointment.userName === user.userName);
         setFilterAppoitments(filterApp);
-    },[])
+    },[appointments, user])
 
     // console.log(filterAppoitments)
     // console.log(user.userName)

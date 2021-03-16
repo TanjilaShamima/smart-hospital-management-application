@@ -23,7 +23,7 @@ const AddNewService = () => {
         // doctorInfo.append('userPassword', data.userPassword);
         // doctorInfo.append('role', 'doctor');
 
-        fetch('http://localhost:5000/addService',{
+        fetch('https://floating-ocean-27822.herokuapp.com/addService',{
             method: 'POST',
             body: ServiceInfo
         })

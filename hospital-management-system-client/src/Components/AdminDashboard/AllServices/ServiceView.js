@@ -8,7 +8,7 @@ const ServiceView = ({show, handleClose, id}) => {
     // const {id} = useParams()
 
     useEffect(() => {
-        fetch('http://localhost:5000/service/'+id)
+        fetch('https://floating-ocean-27822.herokuapp.com/service/'+id)
             .then(res => res.json())
             .then(data =>{ setService(data)
                 

@@ -44,7 +44,7 @@ const BookAnAppointment = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/doctors')
+        fetch('https://floating-ocean-27822.herokuapp.com/doctors')
        .then(res => res.json())
        .then(data => setDoctor(data))
      },[])
@@ -61,7 +61,7 @@ const BookAnAppointment = () => {
 
     const onSubmit = data =>{
         data.role = 'patient';
-        fetch('http://localhost:5000/addAppointments',{
+        fetch('https://floating-ocean-27822.herokuapp.com/addAppointments',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)

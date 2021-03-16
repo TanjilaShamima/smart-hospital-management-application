@@ -15,7 +15,7 @@ const DoctorsRecord = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/doctors')
+        fetch('https://floating-ocean-27822.herokuapp.com/doctors')
        .then(res => res.json())
        .then(data => setDoctors(data))
      },[])

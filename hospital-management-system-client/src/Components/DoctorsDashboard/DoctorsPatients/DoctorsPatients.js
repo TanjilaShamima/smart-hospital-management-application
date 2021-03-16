@@ -18,7 +18,7 @@ const DoctorsPatients = ({user}) => {
 
 
         useEffect(() => {
-            fetch('http://localhost:5000/appointments')
+            fetch('https://floating-ocean-27822.herokuapp.com/appointments')
            .then(res => res.json())
            .then(data => setAppointment(data))
          },[])
@@ -26,17 +26,17 @@ const DoctorsPatients = ({user}) => {
          useEffect(() => {
             const filterApp = appointments.filter(appointment => appointment.doctorName === user.userName);
             setFilterAppoitments(filterApp);
-        },[])
+        },[appointments, user])
        
 
         useEffect(() => {
-            fetch('http://localhost:5000/patients')
+            fetch('https://floating-ocean-27822.herokuapp.com/patients')
            .then(res => res.json())
            .then(data => setPatient(data))
          },[])
     
          useEffect(() => {
-            fetch('http://localhost:5000/doctors')
+            fetch('https://floating-ocean-27822.herokuapp.com/doctors')
            .then(res => res.json())
            .then(data => setDoctor(data))
          },[])

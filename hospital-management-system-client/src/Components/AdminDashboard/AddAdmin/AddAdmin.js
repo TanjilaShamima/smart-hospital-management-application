@@ -10,7 +10,7 @@ const AddAdmin = () => {
 
     const onSubmit = data =>{
         data.role = 'admin';
-        fetch('http://localhost:5000/addAdmin',{
+        fetch('https://floating-ocean-27822.herokuapp.com/addAdmin',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)

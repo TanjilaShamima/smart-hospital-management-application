@@ -14,7 +14,7 @@ const PatientRegistration = () => {
 
     const onSubmit = data =>{
         data.role = 'patient';
-        fetch('http://localhost:5000/addPatient',{
+        fetch('https://floating-ocean-27822.herokuapp.com/addPatient',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)

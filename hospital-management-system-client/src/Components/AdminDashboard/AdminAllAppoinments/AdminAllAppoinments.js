@@ -13,20 +13,20 @@ const AdminAllAppoinments = () => {
 
     
     useEffect(() => {
-        fetch('http://localhost:5000/appointments')
+        fetch('https://floating-ocean-27822.herokuapp.com/appointments')
        .then(res => res.json())
        .then(data => setAppointment(data))
      },[])
      
 
      useEffect(() => {
-        fetch('http://localhost:5000/patients')
+        fetch('https://floating-ocean-27822.herokuapp.com/patients')
        .then(res => res.json())
        .then(data => setPatient(data))
      },[])
 
      useEffect(() => {
-        fetch('http://localhost:5000/doctors')
+        fetch('https://floating-ocean-27822.herokuapp.com/doctors')
        .then(res => res.json())
        .then(data => setDoctor(data))
      },[])
@@ -113,8 +113,8 @@ const AdminAllAppoinments = () => {
                         {
                             appointments.map(appointment => 
                             <tr key={appointment._id}>
-                                <td>{appointment._id}</td>
                                 <td>{appointment.userName}</td>
+                                <td>{appointment.patientName}</td>
                                 <td>{appointment.doctorName}</td>
                                 <td>{appointment.phoneNo}</td>
                                 <td>{appointment.userEmail}</td>

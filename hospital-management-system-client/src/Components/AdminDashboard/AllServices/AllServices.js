@@ -22,7 +22,7 @@ const AllServices = () => {
     const patients = fakePatients.slice(0);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://floating-ocean-27822.herokuapp.com/services')
        .then(res => res.json())
        .then(data => setServices(data))
      },[])
