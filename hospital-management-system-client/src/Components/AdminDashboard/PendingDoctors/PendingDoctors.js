@@ -2,23 +2,64 @@ import { faCalendar, faPen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Dropdown, Row, Table } from 'react-bootstrap';
-import DoctorDetails from './DoctorDetails';
+import DoctorDetails from '../DoctorDetails/DoctorDetails';
 
-
-const DoctorsRecord = () => {
+const PendingDoctors = () => {
     const [doctors, setDoctors] = useState([])
 
     const [show, setShow] = useState(false);
+  
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    
 
     useEffect(() => {
         fetch('https://floating-ocean-27822.herokuapp.com/doctors')
        .then(res => res.json())
-       .then(data => setDoctors(data))
+       .then(data => setDoctors(data))  
+        
      },[])
+
+     const pendingDoctors  = doctors.filter(doctor => doctor.verifyStatus === 'pending'); 
+
+     const handleAcceptClick = (docId, status) => {
+        const statusObject = {
+            verifyStatus : status
+        }
+
+        fetch('http://localhost:5000/update-doctor/'+docId, {
+            method : 'PATCH',
+            headers : {'Content-Type': 'application/json'},
+            body : JSON.stringify(statusObject)
+        })
+        .then(res => res.json())
+        .then(returnData => {
+            if(returnData){
+                const filterDoctor = doctors.filter(doctor => doctor._id !== docId)
+                const [seletedDoctor] = doctors.filter(doctor => doctor._id === docId)
+                const updateSelectedDoctor = {...seletedDoctor, verifyStatus : status}
+                setDoctors([...filterDoctor, updateSelectedDoctor])
+            }
+        })
+     }
+
+     const handleDeleteClick = (docId) => {
+         console.log(docId)
+        fetch('http://localhost:5000/delete-doctor/'+docId, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(result => {
+            if(result){
+                const newDoctors = doctors.filter(doctor => doctor._id !== docId);
+                setDoctors(newDoctors);
+            }
+            
+        })
+    }
+
+    
     
     return (
         <>
@@ -42,31 +83,38 @@ const DoctorsRecord = () => {
                         <tr>
                             {/* <th>id</th> */}
                             <th>Name</th>
-                            <th>Email</th>
+                            {/* <th>Email</th> */}
                             <th>Work Day</th>
+                            <th>Work Time</th>
                             <th>Department</th>
-                            <th>Hospital Name</th>
+                            {/* <th>Hospital Name</th> */}
                             <th>Profile</th>
+                            <th>Type</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            doctors.map(doctor => 
+                            pendingDoctors.map(doctor => 
                             <tr key={doctor._id}>
                                 {/* <td>{doctor._id}</td> */}
                                 <td>{doctor.userName}</td>
-                                <td>{doctor.userEmail}</td>
-                                <td>sat-thur</td>
+                                {/* <td>{doctor.userEmail}</td> */}
+                                <td>{doctor.availableDays}</td>
+                                <td>{doctor.startTime} - {doctor.endTime}</td>
                                 <td>{doctor.doctorCategory}</td>
                                 {/* <td>{pt.name}</td> */}
-                                <td>{doctor.hospitalName}</td>
+                                {/* <td>{doctor.hospitalName}</td> */}
                                 <td>
                                     <Button onClick={()=>handleShow()}  variant="success">View</Button>
+                                    {/* <Button onClick={()=>console.log(doctor._id)}  variant="success">View</Button> */}
+                                </td>
+                                <td>
+                                    <Button variant="success">{doctor.verifyStatus}</Button>
                                 </td>
                                 <td >
-                                    <Button variant="info">Pending</Button>
-                                    <Button className="ml-1" variant="warning"><FontAwesomeIcon icon={faPen} /></Button>
+                                    <Button onClick={()=> handleAcceptClick(doctor._id, 'accept')} variant="info">Accept</Button>
+                                    <Button onClick={()=> handleDeleteClick(doctor._id)} className="ml-1" variant="warning">Delete</Button>
                                 </td>
                                 <DoctorDetails id={doctor._id} show={show} handleClose={handleClose}></DoctorDetails>
                                 
@@ -82,4 +130,4 @@ const DoctorsRecord = () => {
     );
 };
 
-export default DoctorsRecord;
+export default PendingDoctors;

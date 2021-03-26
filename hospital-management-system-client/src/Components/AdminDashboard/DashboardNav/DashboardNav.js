@@ -7,7 +7,7 @@ import AdminDashboardRoot from '../AdminDashboardRoot/AdminDashboardRoot';
 import AdminAllAppoinments from '../AdminAllAppoinments/AdminAllAppoinments';
 import AdminProfile from '../AdminProfile/AdminProfile';
 import AddDoctor from '../AddDoctor/AddDoctor';
-import DoctorsRecord from '../DoctorsRecord/DoctorsRecord';
+import AvailableDoctors from '../AvailableDoctors/AvailableDoctors';
 import AddAdmin from '../AddAdmin/AddAdmin';
 import AddNewService from '../AddNewService/AddNewService';
 import AllServices from '../AllServices/AllServices';
@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 // import { handleSignOut } from './signOutManager';
 import { addLoggedinUser } from '../../../Redux/Actions/PortalActions';
 import AllPatients from '../AllPatients/AllPatients';
+import PendingDoctors from '../PendingDoctors/PendingDoctors';
 
 const DashboardNav = ({user, addLoggedinUser}) => {
     const signOut = () => {
@@ -58,7 +59,11 @@ const DashboardNav = ({user, addLoggedinUser}) => {
                             <Nav.Link className="text-white" eventKey="add-doctor"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Add Doctor</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link className="text-white" eventKey="doctors-record"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Doctor's Record</Nav.Link>
+                            <Nav.Link className="text-white" eventKey="doctors-available"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Available Doctors</Nav.Link>
+                        </Nav.Item>
+
+                        <Nav.Item>
+                            <Nav.Link className="text-white" eventKey="doctors-pending"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Pending Doctors</Nav.Link>
                         </Nav.Item>
                         
                         <Nav.Item>
@@ -119,8 +124,11 @@ const DashboardNav = ({user, addLoggedinUser}) => {
                     <Tab.Pane eventKey="add-admin">
                         <AddAdmin />
                     </Tab.Pane>
-                    <Tab.Pane eventKey="doctors-record">
-                        <DoctorsRecord />
+                    <Tab.Pane eventKey="doctors-available">
+                        <AvailableDoctors />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="doctors-pending">
+                        <PendingDoctors />
                     </Tab.Pane>
                     <Tab.Pane eventKey="add-service">
                         <AddNewService />

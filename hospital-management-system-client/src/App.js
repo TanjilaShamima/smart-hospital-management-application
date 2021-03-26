@@ -27,6 +27,10 @@ import AdminProfileUpdate from './Components/AdminDashboard/AdminProfileUpdate/A
 import AboutDreamHospital from './Components/AboutUs/AboutDreamHospital/AboutDreamHospital';
 import ContactWithUs from './Components/ContactUs/ContactWithUs/ContactWithUs';
 import ServiceView from './Components/AdminDashboard/AllServices/ServiceView';
+import FindDoctorRoot from './Components/FindADoctorPage/FindDoctorRoot/FindDoctorRoot';
+import FindDoctorOrganicIndex from './Components/FindADoctorPage/FindDoctorOrganicIndex/FindDoctorOrganicIndex';
+import DoctorIndex from './Components/DoctorsDashboard/DoctorIndex/DoctorIndex';
+
 
 
 function App() {
@@ -42,7 +46,13 @@ function App() {
               <CombineLogIn></CombineLogIn>
             </Route>
             <Route path="/find-doctor">
+              <FindDoctorRoot></FindDoctorRoot>
+            </Route>
+            <Route path="/find-doctor-static">
               <FindDoctorIndex></FindDoctorIndex>
+            </Route>
+            <Route path="/find-doctor-organ">
+              <FindDoctorOrganicIndex></FindDoctorOrganicIndex>
             </Route>
             <Route path="/appointments">
               <Appointments></Appointments>
@@ -57,7 +67,7 @@ function App() {
               <DashboardNav></DashboardNav>
             </PrivateRoute>
             <PrivateRoute path="/doctorportal">
-              <DoctorDashboardNav></DoctorDashboardNav>
+              <DoctorIndex></DoctorIndex>
             </PrivateRoute>
             <PrivateRoute path="/patientportal">
               <PatientDashboardNav></PatientDashboardNav>

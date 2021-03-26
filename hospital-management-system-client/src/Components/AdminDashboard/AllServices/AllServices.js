@@ -10,7 +10,7 @@ const AllServices = () => {
     const [services, setServices] = useState([]);
 
     const [show, setShow] = useState(false);
-    const [id, setId] = useState();
+    // const [id, setId] = useState();
 
     const handleClose = () => setShow(false);
     const handleShow = () => {
@@ -27,9 +27,9 @@ const AllServices = () => {
        .then(data => setServices(data))
      },[])
 
-     const handleClick = id => {
-         console.log(id)
-     }
+    //  const handleClick = id => {
+    //      console.log(id)
+    //  }
 
 
     return (
@@ -110,23 +110,24 @@ const AllServices = () => {
                     <tbody>
                         {
                             services.map((service, index) => 
+                            <>
                             <tr key={service._id}>
                                 <td>{service._id}</td>
                                 <td>{service.serviceName}</td>
                                 <td>
                                     <Button onClick={()=>
-                                    handleShow()} variant="success" >View</Button>    
+                                    handleShow()} variant="success" key={service._id} >View</Button>    
                                 </td>
                                 <td >
                                     <Button variant="info">Pending</Button>
                                     <Button className="ml-1" variant="warning"><FontAwesomeIcon icon={faPen} /></Button>
-                                </td>
-
-                                <ServiceView id={service._id} show={show} handleClose={handleClose} setId={setId}></ServiceView>
-                               
+                                </td> 
                                 
-                                
-                            </tr>)
+                            </tr>
+                            <ServiceView key={service._id} id={service._id} show={show} handleClose={handleClose}></ServiceView> 
+                            </>
+                            )
+                            
                         }
                         
                     </tbody>

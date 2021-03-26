@@ -95,6 +95,34 @@ client.connect(err => {
     })
   })
 
+
+  app.get('/doctors/:id', (req, res) => {
+    doctorCollection.find({_id: ObjectId(req.params.id) })
+      .toArray((err, documents) => {
+          res.send(documents[0]);
+      })
+  })
+
+  app.patch('/update-doctor/:docId', (req, res) =>{
+    doctorCollection.updateOne({_id : ObjectId(req.params.docId)},
+    {
+        $set: {verifyStatus : req.body.verifyStatus}
+    })
+    .then(result =>{
+        console.log(result);
+    })
+})
+
+
+app.delete('/delete-doctor/:docId', (req, res) => {
+  doctorCollection.deleteOne({_id: ObjectId(req.params.docId)})
+  .then((doctor) =>{
+      console.log(doctor)
+      res.send(doctor.deletedCount > 0)
+      
+  })
+})
+
 //Doctor End
 
 

@@ -14,6 +14,7 @@ const ServiceView = ({show, handleClose, id}) => {
                 
              })
     })
+    // console.log(id)
    
     return (
         <Modal size="lg"
@@ -23,7 +24,7 @@ const ServiceView = ({show, handleClose, id}) => {
             <Modal.Title>
                 {/* <Image style={{height : '400px', width : '100%'}} src={service.serviceImage} alt="im"/> */}
                     
-                <h2>{id}</h2>
+                {/* <h2>{id}</h2> */}
                 {/* <h2>{service.serviceName}</h2> */}
 
             </Modal.Title>
