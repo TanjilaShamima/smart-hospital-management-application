@@ -12,7 +12,7 @@ const AppoinmentArea = () => {
                             <p className="text-secondary">
                             Hospitals are usually funded by public funding, health organisations (for profit or nonprofit), health insurance companies, or charities, including direct charitable donations. Historically, hospitals were often founded and funded by religious orders, or by charitable individuals and leaders
                             </p>
-                            <Link to="/apponitments">
+                            <Link to="/appointments">
                                 <Button variant="primary" className="font-weight-bold">Get Appointment</Button>
                             </Link>
                         </Col>

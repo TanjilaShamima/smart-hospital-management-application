@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router-dom';
+import { ErrorMessage } from '@hookform/error-message';
 
 const PatientRegistration = () => {
 
@@ -39,11 +40,47 @@ const PatientRegistration = () => {
                     <input className="form-control my-3 p-3" type="email" name="userEmail" ref={register({ required: true })} placeholder="Email"/>           
                     {errors?.userEmail && <span className="text-danger">This field is required</span>}
 
-                    <input className="form-control my-3 p-3" type="text" name="userGender" ref={register({ required: true })} placeholder="Gender"/>           
-                    {errors?.userGender && <span className="text-danger">This field is required</span>}
+                    {/* <input className="form-control my-3 p-3" type="text" name="userGender" ref={register({ required: true })} placeholder="Gender"/>           
+                    {errors?.userGender && <span className="text-danger">This field is required</span>} */}
+                    
+                    <fieldset className="d-flex justify-content-between align-items-start bg-white text-left px-3 py-2">
+                        Gender :
+                        <div>
+                            <input type="radio" id="male" name="userGender" value="male" ref={register({ required: true })}/>
+                            <label className="mx-1"  for="male"> Male</label> 
+                        </div>
+                        <div>
+                            <input type="radio" id="female" name="userGender" value="female" ref={register({ required: true })}/>
+                            <label className="mx-1" for="female"> Female</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="other" name="userGender" value="other" ref={register({ required: true })}/>
+                            <label className="mx-1" for="other"> Other</label>
+                        </div>
+                    </fieldset>
 
-                    <input className="form-control my-3 p-3" type="number" name="mobileNumber" ref={register({ required: true })} placeholder="Mobile Number"/>           
-                    {errors?.mobileNumber && <span className="text-danger">This field is required</span>}
+                    <input className="form-control my-3 p-3" type="tel" name="mobileNumber"
+                    ref={register({
+                        required: "This input is required.",
+                        pattern: {
+                          value: /(^(\+8801|8801|01|008801))[1|3-9]{1}(\d){8}$/,
+                          message: "Only Bangladeshi Number is required"
+                        }
+                      })} placeholder="Mobile Number"/> 
+                        <ErrorMessage errors={errors}        name="multipleErrorInput">
+                            {({ messages }) => {
+                            console.log(messages);
+                            return (
+                                messages &&
+                                Object.entries(messages).map(([type, message]) => (
+                                <p className="text-danger" key={type}>{message}</p>
+                                ))
+                            );
+                            }}
+                        </ErrorMessage>          
+                    {/* {errors?.mobileNumber === "required" && <span className="text-danger">This field is required</span>}
+                    {errors?.mobileNumber === "pattern" && <span className="text-danger">Must be a Bangladeshi Number</span>} */}
+                    {/* /(^(\+8801|8801|01|008801))[1|3-9]{1}(\d){8}$/ */}
 
                     <input className="form-control my-3 p-3" type="password" name="userPassword" ref={register({ required: true })} placeholder="Password"/>           
                     {errors?.userPassword && <span className="text-danger">This field is required</span>}

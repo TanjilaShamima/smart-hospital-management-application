@@ -88,8 +88,7 @@ const DoctorRegistration = ({user, addLoggedinUser}) => {
     return (
         <div className="" style={{textAlign: 'center', height : '800px', backgroundImage : 'url("https://wallpaperaccess.com/full/619974.jpg")', backgroundPosition : 'center center', backgroundSize :'cover'}}>
 
-            <Container className="">
-     
+            <Container className="">   
             <form className="rounded shadow p-4 border float-right" style={{width: '450px', border : '1px solid #04020200', boxShadow : 'gray', marginTop : '80px', backgroundColor : '#343a4059'}} onSubmit={handleSubmit(onSubmit)}>
                 <h2 className="text-light">Create a New Account</h2>
 

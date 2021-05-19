@@ -21,6 +21,7 @@ const DoctorSearchByOrgan = ({setSelectedDept}) => {
                     return (
                        <div onClick={()=>setSelectedDept(dept.deptName)} className="organ-image">
                            <img height={120} src={dept.depPic} key={dept.id} alt={dept.deptName}/>
+                           <p>{dept.deptName}</p>
                        </div>
                     )
                 })

@@ -63,6 +63,7 @@ const BookModal = (props) => {
 
     const onSubmit = data =>{
         data.role = 'patient';
+        data.status = 'new';
         fetch('https://floating-ocean-27822.herokuapp.com/addAppointments',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -103,13 +104,29 @@ const BookModal = (props) => {
                             <input className="form-control my-3 p-3" type="number" name="phoneNo" ref={register({ required: true})} placeholder="Enter Your Mobile Number"/>           
                             { errors?.phoneNo && errors?.phoneNo?.type === 'required' &&  <span className="text-danger">This field is required</span>}
 
-                            <input className="form-control my-3 p-3" type="text" name="userGender" ref={register({ required: true})} placeholder="Gender"/>           
-                            { errors?.userGender && errors?.userGender?.type === 'required' &&  <span className="text-danger">This field is required</span>}
+                            {/* <input className="form-control my-3 p-3" type="text" name="userGender" ref={register({ required: true})} placeholder="Gender"/>           
+                            { errors?.userGender && errors?.userGender?.type === 'required' &&  <span className="text-danger">This field is required</span>} */}
+
+                            <fieldset className="d-flex justify-content-between align-items-start bg-white text-left px-3 py-2 my-3">
+                                Gender :
+                                <div>
+                                    <input type="radio" id="male" name="userGender" value="male" ref={register({ required: true })}/>
+                                    <label className="mx-1"  for="male"> Male</label> 
+                                </div>
+                                <div>
+                                    <input type="radio" id="female" name="userGender" value="female" ref={register({ required: true })}/>
+                                    <label className="mx-1" for="female"> Female</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="other" name="userGender" value="other" ref={register({ required: true })}/>
+                                    <label className="mx-1" for="other"> Other</label>
+                                </div>
+                            </fieldset>
 
                             <DropdownButton
                                 className="bg-light py-2 rounded"
                                 size="sm"
-                                title="Select one..."
+                                title="Departments..."
                                 onSelect={handleDepartmentChange} 
                                 onChange={e => { setPatientDetails({...patientDetails, department: e.target.value})}}
                                 >

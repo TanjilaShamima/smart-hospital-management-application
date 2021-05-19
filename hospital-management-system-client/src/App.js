@@ -30,6 +30,11 @@ import ServiceView from './Components/AdminDashboard/AllServices/ServiceView';
 import FindDoctorRoot from './Components/FindADoctorPage/FindDoctorRoot/FindDoctorRoot';
 import FindDoctorOrganicIndex from './Components/FindADoctorPage/FindDoctorOrganicIndex/FindDoctorOrganicIndex';
 import DoctorIndex from './Components/DoctorsDashboard/DoctorIndex/DoctorIndex';
+import OurMission from './Components/AboutUs/OurMission/OurMission';
+import HospitalInfo from './Components/ContactUs/HospitalInfo/HospitalInfo';
+import Career from './Components/ContactUs/Career/Career';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+import DoctorsProfile from './Components/DoctorsProfile/DoctorsProfile';
 
 
 
@@ -60,8 +65,20 @@ function App() {
             <Route path="/about">
               <AboutDreamHospital></AboutDreamHospital>
             </Route>
+            <Route path="/mission">
+              <OurMission></OurMission>
+            </Route>
+            <Route path="/info">
+              <HospitalInfo></HospitalInfo>
+            </Route>
+            <Route path="/career">
+              <Career></Career>
+            </Route>
             <Route path="/contact">
               <ContactWithUs></ContactWithUs>
+            </Route>
+            <Route path="/doctors-profile/:id">
+              <DoctorsProfile></DoctorsProfile>
             </Route>
             <PrivateRoute path="/adminportal">
               <DashboardNav></DashboardNav>
@@ -96,6 +113,11 @@ function App() {
           </Switch>
           <Footer></Footer>
         </Router>
+        <MessengerCustomerChat
+          pageId="115428890103284"
+          appId="319709819819482"
+          htmlRef="<REF_STRING>"
+        />
     </div>
   );
 }

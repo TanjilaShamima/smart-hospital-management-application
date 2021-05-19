@@ -66,9 +66,9 @@ const DashboardNav = ({user, addLoggedinUser}) => {
                             <Nav.Link className="text-white" eventKey="doctors-pending"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Pending Doctors</Nav.Link>
                         </Nav.Item>
                         
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="prescriptions"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Prescriptions</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         <Nav.Item>
                             <Nav.Link className="text-white" eventKey="add-admin"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Add Admin</Nav.Link>
                         </Nav.Item>
@@ -78,24 +78,24 @@ const DashboardNav = ({user, addLoggedinUser}) => {
                         <Nav.Item>
                             <Nav.Link className="text-white" eventKey="add-service"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Add New Service</Nav.Link>
                         </Nav.Item>
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="corona-patient"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Corona Patients List</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
+                        </Nav.Item> */}
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="corona-vaccine"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Corona Vaccine List</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
+                        </Nav.Item> */}
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="new-corona-patient"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Add New Corona Patient</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
+                        </Nav.Item> */}
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="add-outbreaks"><FontAwesomeIcon className="mr-2" icon={faProcedures} />Add Outbreaks</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
+                        </Nav.Item> */}
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="likely-outbreaks"><FontAwesomeIcon className="mr-2" icon={faProcedures} />Likely Outbreaks</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
+                        </Nav.Item> */}
+                        {/* <Nav.Item>
                             <Nav.Link eventKey="settings" disabled><FontAwesomeIcon className="mr-2" icon={faCog} />Settings</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         <Nav.Item>
                             <Nav.Link eventKey="password" disabled><FontAwesomeIcon className="mr-2" icon={faCog} />Change Password</Nav.Link>
                         </Nav.Item>

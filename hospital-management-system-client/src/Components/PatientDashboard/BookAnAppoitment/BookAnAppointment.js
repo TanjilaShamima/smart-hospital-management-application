@@ -75,15 +75,13 @@ const BookAnAppointment = () => {
     }
     return (
         <div className="p-5">
-            
             <form className="rounded shadow p-5 border" style={{ border : '1px solid #04020200', boxShadow : 'gray', marginTop : '10px', backgroundColor : '#343a4059'}} onSubmit={handleSubmit(onSubmit)}>
-            <h2 className="text-center">Book an Appointment</h2>
 
-                <input className="form-control my-3 mt-4 p-3" type="text" name="userName" ref={register({ required: true,})} placeholder="Enter Full Name"/>           
+                <input className="form-control my-3 mt-4 p-3" type="text" name="userName" ref={register({ required: true,})} placeholder="User Full Name"/>           
                 { errors?.userName && errors?.userName?.type === 'required' &&  <span className="text-danger">This field is required</span>}
 
                 <input className="form-control my-3 mt-4 p-3" type="text" name="patientName" ref={register({ required: true,})} placeholder="Patient Full Name"/>           
-                            { errors?.patientName && errors?.patientName?.type === 'required' &&  <span className="text-danger">This field is required</span>}
+                { errors?.patientName && errors?.patientName?.type === 'required' &&  <span className="text-danger">This field is required</span>}
 
                 <input className="form-control my-3 p-3" type="email" name="userEmail" ref={register({ required: true })} placeholder="Email"/>           
                 {errors?.userEmail && <span className="text-danger">This field is required</span>}
@@ -91,13 +89,29 @@ const BookAnAppointment = () => {
                 <input className="form-control my-3 p-3" type="number" name="phoneNo" ref={register({ required: true})} placeholder="Enter Your Mobile Number"/>           
                 { errors?.phoneNo && errors?.phoneNo?.type === 'required' &&  <span className="text-danger">This field is required</span>}
 
-                <input className="form-control my-3 p-3" type="text" name="userGender" ref={register({ required: true})} placeholder="Gender"/>           
-                            { errors?.userGender && errors?.userGender?.type === 'required' &&  <span className="text-danger">This field is required</span>}
+                {/* <input className="form-control my-3 p-3" type="text" name="userGender" ref={register({ required: true})} placeholder="Gender"/>           
+                { errors?.userGender && errors?.userGender?.type === 'required' &&  <span className="text-danger">This field is required</span>} */}
+
+                <fieldset className="d-flex justify-content-between align-items-start bg-white text-left px-3 py-2 my-3">
+                    Gender :
+                    <div>
+                        <input type="radio" id="male" name="userGender" value="male" ref={register({ required: true })}/>
+                        <label className="mx-1"  for="male"> Male</label> 
+                    </div>
+                    <div>
+                        <input type="radio" id="female" name="userGender" value="female" ref={register({ required: true })}/>
+                        <label className="mx-1" for="female"> Female</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="other" name="userGender" value="other" ref={register({ required: true })}/>
+                        <label className="mx-1" for="other"> Other</label>
+                    </div>
+                </fieldset>
 
                 <DropdownButton
                     className="bg-light py-2 rounded"
                     size="sm"
-                    title="Select one..."
+                    title="Departments..."
                     onSelect={handleDepartmentChange} 
                     onChange={e => { setPatientDetails({...patientDetails, department: e.target.value})}}
                     >
@@ -115,7 +129,7 @@ const BookAnAppointment = () => {
                     className="form-control"
                     >
                         {
-                            filterByDeptDoctors.map(doctor => <option key={doctor._id} value={doctor.useName}>{doctor.userName}</option>)
+                            filterByDeptDoctors.map(doctor => <option key={doctor._id} value={doctor.userName}>{doctor.userName}</option>)
                         }
                 </select>
                 {errors?.doctorName && <span className="text-danger">This field is required</span>}

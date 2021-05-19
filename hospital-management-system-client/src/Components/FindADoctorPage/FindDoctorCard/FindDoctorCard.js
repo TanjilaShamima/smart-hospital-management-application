@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Card, Col, Image, Row } from 'react-bootstrap';
 import {faPhone, faComments, faCalendarAlt} from '@fortawesome/free-solid-svg-icons';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './FindDoctorCard.css'
 
 const FindDoctorCard = ({selectedDoc}) => {
@@ -31,7 +31,7 @@ const FindDoctorCard = ({selectedDoc}) => {
                         <div style={{width: '30px', height:'30px'}} className="rounded-circle mx-auto bg-dark d-flex justify-content-center align-items-center overflow-hidden">
                             <FontAwesomeIcon className="text-white" icon={faComments}></FontAwesomeIcon>
                         </div>
-                        <small>SEND AN INQUIRY</small>
+                        <small><Link to="/contact">SEND AN INQUIRY</Link></small>
                     </Col>
                     <Col style={{cursor: 'pointer'}} onClick={() => history.push('/appointments')} md={4} className="text-center">
                         <div style={{width: '30px', height:'30px'}} className="rounded-circle mx-auto bg-dark d-flex justify-content-center align-items-center overflow-hidden">

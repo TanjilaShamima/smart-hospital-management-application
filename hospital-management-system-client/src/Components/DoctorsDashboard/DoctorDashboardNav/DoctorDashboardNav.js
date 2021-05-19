@@ -7,6 +7,7 @@ import { addLoggedinUser } from '../../../Redux/Actions/PortalActions';
 import DoctorProfile from '../DoctorProfile/DoctorProfile';
 import DoctorDashboardRoot from '../DoctorsDashboardRoot/DoctorDashboardRoot';
 import DoctorsPatients from '../DoctorsPatients/DoctorsPatients';
+import OldAppointments from '../OldAppointments/OldAppointments';
 
 const DoctorDashboardNav = ({user, addLoggedinUser}) => {
     const signOut = () => {
@@ -43,7 +44,10 @@ const DoctorDashboardNav = ({user, addLoggedinUser}) => {
                             <Nav.Link className="text-white" eventKey="profile"><FontAwesomeIcon className="mr-2" icon={faUser} />Profile</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link className="text-white" eventKey="appointments"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Patient Book</Nav.Link>
+                            <Nav.Link className="text-white" eventKey="appointments"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Remaining Patient </Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link className="text-white" eventKey="old-appointments"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Old Patient</Nav.Link>
                         </Nav.Item>
                         {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="add-doctor"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Add Doctor</Nav.Link>
@@ -52,13 +56,13 @@ const DoctorDashboardNav = ({user, addLoggedinUser}) => {
                             <Nav.Link className="text-white" eventKey="doctors-record"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Doctor's Record</Nav.Link>
                         </Nav.Item> */}
                         
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="prescriptions"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Prescriptions</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="add-admin"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Add Admin</Nav.Link>
                         </Nav.Item> */}
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="corona-patient"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Corona Patients List</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -75,7 +79,7 @@ const DoctorDashboardNav = ({user, addLoggedinUser}) => {
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link eventKey="settings"><FontAwesomeIcon className="mr-2" icon={faCog} />Settings</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         <Nav.Item>
                             <Nav.Link eventKey="password"><FontAwesomeIcon className="mr-2" icon={faCog} />Change Password</Nav.Link>
                         </Nav.Item>
@@ -98,8 +102,8 @@ const DoctorDashboardNav = ({user, addLoggedinUser}) => {
                     <Tab.Pane eventKey="add-doctor">
                         {/* <AddDoctor /> */}
                     </Tab.Pane>
-                    <Tab.Pane eventKey="doctors-record">
-                        {/* <DoctorsRecord /> */}
+                    <Tab.Pane eventKey="old-appointments">
+                        <OldAppointments />
                     </Tab.Pane>
                     <Tab.Pane eventKey="patients">
                         <h1>This is patients</h1>

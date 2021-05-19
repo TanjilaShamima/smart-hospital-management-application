@@ -33,14 +33,14 @@ const AboutDreamHospital = () => {
                     <li>Global Healthcare Accreditation with Excellence: September 2017</li>
                 </ul>
                 <Row className="d-flex justify-content-between mt-5 mb-5">
-                    <Col md={3}>
-                        <Image width={400} height={270}  src="https://www.healthcarefacilitiestoday.com/media/graphics/2018/18034-operating-room.jpg" />
+                    <Col md={4}>
+                        <Image style={{width : '100%', height : '270px'}}  src="https://www.healthcarefacilitiestoday.com/media/graphics/2018/18034-operating-room.jpg" />
                     </Col>
-                    <Col md={3}>
-                        <Image width={400} height={270} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3hBiSdSzdDrmIgT144a84vdzCFPDNqjv_Yg&usqp=CAU" />
+                    <Col md={4}>
+                        <Image style={{width : '100%', height : '270px'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3hBiSdSzdDrmIgT144a84vdzCFPDNqjv_Yg&usqp=CAU" />
                     </Col>
-                    <Col md={3}>
-                        <Image width={400} height={270} src="https://aquinahealth.com/wp-content/uploads/2018/09/Pulse_91918.jpeg" />
+                    <Col md={4}>
+                        <Image style={{width : '100%', height : '270px'}} src="https://aquinahealth.com/wp-content/uploads/2018/09/Pulse_91918.jpeg" />
                     </Col>
                 </Row>
                 <br/>

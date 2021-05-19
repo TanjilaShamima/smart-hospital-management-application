@@ -5,7 +5,7 @@ const DoctorDetails = ({show, handleClose, id}) => {
     const [doctor, setDoctor] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:5000/doctors/'+id)
+        fetch('https://floating-ocean-27822.herokuapp.com/doctors/'+id)
             .then(res => res.json())
             .then(data =>{setDoctor(data)
                 

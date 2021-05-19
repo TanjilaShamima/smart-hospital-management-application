@@ -52,9 +52,9 @@ const PatientDashboardNav = ({user, addLoggedinUser}) => {
                             <Nav.Link className="text-white" eventKey="doctors-record"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Doctor's Record</Nav.Link>
                         </Nav.Item> */}
                         
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="prescriptions"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Prescriptions</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="add-admin"><FontAwesomeIcon className="mr-2" icon={faFileAlt} />Add Admin</Nav.Link>
                         </Nav.Item> */}
@@ -70,12 +70,12 @@ const PatientDashboardNav = ({user, addLoggedinUser}) => {
                         {/* {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="add-outbreaks"><FontAwesomeIcon className="mr-2" icon={faProcedures} />Add Outbreaks</Nav.Link>
                         </Nav.Item> */}
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link className="text-white" eventKey="replies"><FontAwesomeIcon className="mr-2" icon={faProcedures} />Replies</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
+                        </Nav.Item> */}
+                        {/* <Nav.Item>
                             <Nav.Link eventKey="settings"><FontAwesomeIcon className="mr-2" icon={faCog} />Settings</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         <Nav.Item>
                             <Nav.Link eventKey="password"><FontAwesomeIcon className="mr-2" icon={faCog} />Change Password</Nav.Link>
                         </Nav.Item>
@@ -98,10 +98,10 @@ const PatientDashboardNav = ({user, addLoggedinUser}) => {
                     <Tab.Pane eventKey="book-an-appointment">
                         <BookAnAppointment />
                     </Tab.Pane>
-                    <Tab.Pane eventKey="doctors-record">
-                        {/* <DoctorsRecord /> */}
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="patients">
+                    {/* <Tab.Pane eventKey="doctors-record">
+                       
+                    </Tab.Pane> */}
+                    {/* <Tab.Pane eventKey="patients">
                         <h1>This is patients</h1>
                     </Tab.Pane>
                     <Tab.Pane eventKey="prescriptions">
@@ -109,7 +109,7 @@ const PatientDashboardNav = ({user, addLoggedinUser}) => {
                     </Tab.Pane>
                     <Tab.Pane eventKey="add-admin">
                         <h1>This is prescriptions</h1>
-                    </Tab.Pane>
+                    </Tab.Pane> */}
                     
                 </Tab.Content>
                 </Col>

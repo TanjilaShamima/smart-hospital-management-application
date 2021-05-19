@@ -6,6 +6,7 @@ const ServiceView = ({show, handleClose, id}) => {
     const [service, setService] = useState();
 
     // const {id} = useParams()
+    console.log(id)
 
     useEffect(() => {
         fetch('https://floating-ocean-27822.herokuapp.com/service/'+id)

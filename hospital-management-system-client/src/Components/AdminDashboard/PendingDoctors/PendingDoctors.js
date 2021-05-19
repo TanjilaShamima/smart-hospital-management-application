@@ -28,7 +28,7 @@ const PendingDoctors = () => {
             verifyStatus : status
         }
 
-        fetch('http://localhost:5000/update-doctor/'+docId, {
+        fetch('https://floating-ocean-27822.herokuapp.com/update-doctor/'+docId, {
             method : 'PATCH',
             headers : {'Content-Type': 'application/json'},
             body : JSON.stringify(statusObject)
@@ -46,7 +46,7 @@ const PendingDoctors = () => {
 
      const handleDeleteClick = (docId) => {
          console.log(docId)
-        fetch('http://localhost:5000/delete-doctor/'+docId, {
+        fetch('https://floating-ocean-27822.herokuapp.com/delete-doctor/'+docId, {
             method: 'DELETE'
         })
         .then(response => response.json())

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { addLoggedinUser } from '../../../Redux/Actions/PortalActions';
 import { connect } from 'react-redux';
 
-const DoctorsPatients = ({user}) => {
+const OldAppointments = ({user}) => {
     const [patients, setPatient] = useState([]);
 
     const [doctors, setDoctor] = useState([]);
@@ -43,7 +43,7 @@ const DoctorsPatients = ({user}) => {
 
         //  console.log(filterAppoitments)
         //  console.log(appointments)
-         console.log(patients)
+        //  console.log(user.userName)
 
 
     return (
@@ -121,7 +121,7 @@ const DoctorsPatients = ({user}) => {
                             <th>Gender</th>
                             <th>Email</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            {/* <th>Action</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -135,12 +135,12 @@ const DoctorsPatients = ({user}) => {
                                 <td>{pt.userEmail}</td>
                                 {/* <td>{pt.phone}</td> */}
                                 <td>
-                                    <Button variant="success">Pending</Button>
+                                    <Button variant="success">Confirm</Button>
                                 </td>
-                                <td >
-                                    {/* <Button variant="info">Delete</Button> */}
-                                    <Button variant="info">Done</Button>
-                                </td>
+                                {/* <td >
+                                    <Button variant="info">Pending</Button>
+                                    <Button className="ml-1" variant="warning"><FontAwesomeIcon icon={faPen} /></Button>
+                                </td> */}
                                 
                             </tr>)
                         }
@@ -166,4 +166,4 @@ const mapDispatchToProps = {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DoctorsPatients);
+export default connect(mapStateToProps, mapDispatchToProps)(OldAppointments);

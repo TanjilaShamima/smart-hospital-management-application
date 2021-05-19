@@ -3,13 +3,16 @@ import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import Slider from 'react-slick';
 import './OurDoctors.css'
 import { fakeDoctors } from '../../../FakeData/fakeDoctors';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
 const OurDoctors = () => {
     const [doctors, setDoctor] = useState([])
-    // console.log(doctors)
+    console.log(doctors)
+
+    const history = useHistory();
+
     const settings = {
         dots: true,
         infinite: true,
@@ -45,8 +48,9 @@ const OurDoctors = () => {
                                         <h6>Department : {doctor.doctorCategory}</h6>
                                         <h6 className="text-secondary">Degree : {doctor.hospitalName}</h6>
                                         <p className="mt-2 mr-2 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, quidem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, quidem Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, quidem</p>
-                                        <Button variant="outline-success d-block" className="float-left">Make Appoinment</Button>
-                                        <Button variant="outline-success d-block" className="float-right">View Profile</Button>
+                                        <Button onClick={()=> history.push('/appointments')}variant="outline-success d-block" className="float-left">Make Appoinment</Button>
+                                        {/* <Button value={doctor.userName} onClick={()=> history.push('/doctor-profile')} variant="outline-success d-block" className="float-right">View Profile</Button> */}
+                                        <Button variant="outline-success d-block" className="float-right"><Link to={"/doctors-profile/"+doctor._id}>View Profile</Link></Button>
                                     </Card.Body>
                             </Card>
                             )

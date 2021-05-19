@@ -23,10 +23,10 @@ const Header = ({user,addLoggedinUser}) => {
         }
     }
     return (
-        <div className="">
+        <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                <Container>
-                    <Navbar.Brand><img style={{float: 'left'}}  width = "180px" height ="100px" src={logo} alt=""/></Navbar.Brand>
+                <>
+                    <Navbar.Brand><img style={{float: 'left', marginLeft : '15px'}}  width = "180px" height ="100px" src={logo} alt=""/></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse className="justify-content-end font-weight-bold" id="responsive-navbar-nav">
                   
@@ -36,31 +36,30 @@ const Header = ({user,addLoggedinUser}) => {
                             <NavDropdown title="About Us" id="collasible-nav-dropdown" className="mr-4 ml-0 text-primary" style={{marginTop: '-7px', color: 'blue'}}>
                                 <NavDropdown.Item className="border-bottom py-3 "><Link to="/about">About Dream Hospital</Link></NavDropdown.Item>
                                 <NavDropdown.Item className="border-bottom py-3 "><Link to="/mission">Our Vision/Mission</Link></NavDropdown.Item>
-                                <NavDropdown.Item className="border-bottom py-3"><Link to="/foundation">Dream Foundation</Link></NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title="Contact Us" id="collasible-nav-dropdown" className="mr-4 ml-0 text-primary" style={{marginTop: '-7px', color: 'blue'}}>
-                                <NavDropdown.Item className="border-bottom py-3 "><Link to="/contact">Contact Us</Link></NavDropdown.Item>
-                                <NavDropdown.Item className="border-bottom py-3 "><Link to="/mission">Our Vision/Mission</Link></NavDropdown.Item>
-                                <NavDropdown.Item className="border-bottom py-3"><Link to="/foundation">Dream Foundation</Link></NavDropdown.Item>
+                                <NavDropdown.Item className="border-bottom py-3 "><Link to="/info">Hospital Contact Information</Link></NavDropdown.Item>
+                                <NavDropdown.Item className="border-bottom py-3"><Link to="/contact">Send a Query</Link></NavDropdown.Item>
+                                <NavDropdown.Item className="border-bottom py-3"><Link to="/career">Career</Link></NavDropdown.Item>
                             </NavDropdown>
                             
                             {/* <Link to="/contact" className="mr-5 text-secondary">Contact Us</Link> */}
                             <Link to="/find-doctor" className=" mr-4 text-secondary">Find a Doctor</Link>
                             <Link to="/appointments" className="mr-5 text-secondary">Get Appoinment</Link>
-                            <Link className="mr-5 text-secondary">Blog</Link>
+                            {/* <Link className="mr-5 text-secondary">Blog</Link> */}
                             {/* <Button onClick={handliClick} variant="danger" className="mr-2 font-weight-bold rounded px-lg-4">LogIn</Button> */}
                             { user.userEmail ? 
-                            <Button variant="danger" onClick={signOut} className="nav-link mr-2">Logout ({user.userName})</Button>
+                            <Button style={{marginRight : '15px'}}  variant="danger" onClick={signOut} className="nav-link mr-2">Logout ({user.userName})</Button>
                             :
-                            <Button variant="primary" as={Link} to={'/combine-login'} className="nav-link">Login</Button>}
+                            <Button style={{marginRight : '15px'}} variant="primary" as={Link} to={'/combine-login'} className="nav-link">Login</Button>}
                             { 
                                 user.userEmail && 
-                                <Button onClick={()=> handleClick(user)}>Dashboard</Button>
+                                <Button style={{marginRight : '15px'}}  onClick={()=> handleClick(user)}>Dashboard</Button>
                             
                             } 
                         </Nav>
                     </Navbar.Collapse>
-                </Container>
+                </>
             </Navbar>
         </div>
     );

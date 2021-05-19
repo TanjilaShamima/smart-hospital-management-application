@@ -42,7 +42,7 @@ const YourAppointments = ({user}) => {
                     <Table className="text-center mt-2" striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>Pt-ID</th>
                             {/* <th>Appointment date</th> */}
                             <th>Patient Name</th>
                             <th>Doctor Name</th>

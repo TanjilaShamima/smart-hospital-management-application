@@ -22,7 +22,7 @@ const AvailableDoctors = () => {
 
      const handleDeleteClick = (docId) => {
         console.log(docId)
-       fetch('http://localhost:5000/delete-doctor/'+docId, {
+       fetch('https://floating-ocean-27822.herokuapp.com/delete-doctor/'+docId, {
            method: 'DELETE'
        })
        .then(response => response.json())
@@ -83,9 +83,9 @@ const AvailableDoctors = () => {
                                 {/* <td>{pt.name}</td> */}
                                 {/* <td>{doctor.hospitalName}</td> */}
                                 <td>
-                                    {/* <Button onClick={()=>handleShow()}  variant="success">View</Button> */}
+                                    <Button onClick={()=>handleShow()}  variant="success">View</Button>
 
-                                    <Button onClick={()=>console.log(doctor._id)}  variant="success">View</Button>
+                                    {/* <Button onClick={()=>console.log(doctor._id)}  variant="success">View</Button> */}
                                 </td>
                                 <td>
                                     <Button variant="success">{doctor.verifyStatus}</Button>

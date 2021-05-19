@@ -19,7 +19,7 @@ const DoctorSearch = ({setSelectedDept}) => {
                 <Form.Label>Search by departments</Form.Label>
                 <DropdownButton
                     size="lg"
-                    title="Select one..."
+                    title="Departments..."
                     onSelect={handleDepartmentChange}
                     >
                         {

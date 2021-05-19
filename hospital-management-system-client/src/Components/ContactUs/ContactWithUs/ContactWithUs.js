@@ -23,10 +23,10 @@ const ContactWithUs = () => {
                     <Form.Control type="email" placeholder="Enter email" />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridPassword">
+                    {/* <Form.Group as={Col} controlId="formGridPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
+                    </Form.Group> */}
                 </Form.Row>
 
                 <Form.Group controlId="formGridAddress1">
